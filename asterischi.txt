@@ -1,0 +1,3 @@
+uno due tre quattro cinque
+alfa beta * gamma
+one two three four
