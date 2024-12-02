@@ -3,7 +3,7 @@ STRINGA="$*"
 x=0
 y=0
 contX=0
-contY=0
+boolCheck=0
 LONGSTRING=${#STRINGA}
 if (( ${#STRINGA}%2==0 ));then
 	for ((INDICE=0; $INDICE<${#STRINGA}; INDICE=${INDICE}+1)) ; do 
@@ -13,6 +13,7 @@ if (( ${#STRINGA}%2==0 ));then
 			(( y=$y+1 ))
 		else 
 			echo "falso"
+			boolCheck=1
 			break
 		fi
 	done
@@ -21,7 +22,7 @@ if (( ${#STRINGA}%2==0 ));then
 			((contX=$contX+1))
 		fi
 	done
-	if [[ $x==$y && $contX==$y ]];then
+	if [[ ($x -eq $y) && ($contX -eq $y) && ($boolCheck -eq 0) ]];then
 		echo "vero"
 	fi
 else
