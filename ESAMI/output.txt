@@ -1,0 +1,18 @@
+/* ISO C23 Standard: 7.18 - Bit and byte utilities <stdbit.h>.
+Copyright (C) 2024 Free Software Foundation, Inc.
+This file is part of the GNU C Library.
+/* Copyright (C) 1991-2024 Free Software Foundation, Inc.
+This file is part of the GNU C Library.
+
+/* Copyright (C) 1997-2024 Free Software Foundation, Inc.
+This file is part of the GNU C Library.
+
+/* Functions to access FILE structure internals.
+Copyright (C) 2000-2024 Free Software Foundation, Inc.
+This file is part of the GNU C Library.
+/* Define ISO C stdio on top of C++ iostreams.
+Copyright (C) 1991-2024 Free Software Foundation, Inc.
+Copyright The GNU Toolchain Authors.
+/* Copyright (C) 1991-2024 Free Software Foundation, Inc.
+Copyright The GNU Toolchain Authors.
+This file is part of the GNU C Library.
