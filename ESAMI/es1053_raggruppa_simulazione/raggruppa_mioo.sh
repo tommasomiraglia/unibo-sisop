@@ -1,21 +1,11 @@
 #!/bin/bash
 
-touch support.txt
-cont=0
-
+> support.txt # creiamo il file e in caso lo svuotiamo 
 while read A B motivo D;do
-	echo "$motivo">> support.txt
+	if (( $(grep -c cadutevic.txt) < 1 ));then
+		echo "$motivo">> support.txt
+		#~ echo $(grep -c cadutevic.txt)>> support.txt
+	fi
 done < cadutevic.txt
-
-while read motivi;do
-	while read confronto;do
-		if [[ $motivi == $confronto ]];then 
-			((cont=$cont+1))
-		fi
-	done < support.txt
-	#rimuovere la doppia stampa : 
-	echo $motivi $cont 
-	cont=0
-done < support.txt
-
+cat support.txt
 rm support.txt
