@@ -1,0 +1,2 @@
+int i; struct a{ int *f; int j };
+void f( void );
