@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# VAR="pescecane"
+# VAR="stringa di prova con alcuni caratteri ripetuti"
+# stampare a video tante righe quanti i caratteri diversi trovati nella stringa
+# nella forma:   NumeroVolteCheQuelCarattereCompare Carattere
+
+if (( $# == 0 )) ; then echo "serve argomento"; exit 0; fi
+VAR=$1
+COUNT=0
+for (( COUNT=0; $COUNT<${#VAR}; COUNT=${COUNT}+1 )) ; do
+   echo "${VAR:${COUNT}:1}"
+done | sort | uniq -c 
+
+#!/bin/bash
+
+# VAR="pescecane"
+# VAR="stringa di prova con alcuni caratteri ripetuti"
+# stampare a video tante righe quanti i caratteri diversi trovati nella stringa
+# nella forma:   Carattere NumeroVolteCheQuelCarattereCompare
+
+if (( $# == 0 )) ; then echo "serve argomento"; exit 0; fi
+VAR=$1
+COUNT=0
+for (( COUNT=0; $COUNT<${#VAR}; COUNT=${COUNT}+1 )) ; do
+   echo "${VAR:${COUNT}:1}"
+done | sort | uniq -c  | while read NUM CAR ; do echo "$CAR" $NUM ; done
+
+#!/bin/bash
+
+if (( $# != 1 )) ; then echo "serve un argomento"; exit 0; fi
+if [[ ! -e $1 ]] ; then echo "il file $1 non esiste"; fi
+
+./invertiric.sh < $1
+
+#!/bin/bash
+
+if read LINEA ; then
+  ./invertiric.sh
+  echo "${LINEA}"
+fi
+
+
+#!/bin/bash
+
+if (( $# != 1 )) ; then echo "serve un argomento"; exit 0; fi
+if [[ ! -e $1 ]] ; then echo "il file $1 non esiste"; fi
+
+COUNT=0
+while read RIGA ; do
+  echo "$COUNT ${RIGA}"
+  (( COUNT=${COUNT}+1 ))
+done < $1  | \
+sort -n -r | \
+while read CONTATORE RESIDUO ; do echo "$RESIDUO"; done
+
+#!/bin/bash
+
+if (( $# != 1 )) ; then echo "serve un argomento"; exit 0; fi
+if [[ ! -e $1 ]] ; then echo "il file $1 non esiste"; fi
+
+NUMRIGHE=`wc -l $1`
+# echo NUMRIGHE $NUMRIGHE
+# tolgo dall'output la seconda parola, cioe' il nome del file
+read NUMRIGHE NOMEFILE <<<${NUMRIGHE}
+# echo NUMRIGHE $NUMRIGHE
+for (( indice=1; $indice<=${NUMRIGHE}; indice=$indice+1 )) ; do
+	tail -n $indice $1 | head -n 1
+done
